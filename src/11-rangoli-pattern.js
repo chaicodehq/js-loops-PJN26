@@ -37,4 +37,47 @@
  */
 export function rangoli(n) {
   // Your code here
+  if(typeof n != "number" || isNaN(n) || !Number.isInteger(n) || n <= 0) {
+    return [];
+  }
+  const rangoli = [];
+  for(let i = 1; i <= n; i++) {
+    let currRow = "";
+
+    for(let j = 1; j <= n-i; j++) {
+      currRow += " ";
+    }
+
+    for(let j = 1; j <= i; j++) {
+      if(j == i) {
+        currRow += "*";
+      }
+      else {
+        currRow += "* ";
+      }
+    }
+
+    rangoli.push(currRow);
+  }
+
+  for(let i = n+1; i <= 2*n - 1; i++) {
+    let currRow = "";
+
+    for(let j = 1; j <= i - n; j++) {
+      currRow += " ";
+    }
+
+    for(let j = 1; j <= 2*n - i; j++) {
+      if(j == 2*n - i) {
+        currRow += "*";
+      }
+      else {
+        currRow += "* ";
+      }
+    }
+
+    rangoli.push(currRow);
+  }
+
+  return rangoli;
 }
